@@ -1,0 +1,158 @@
+Metodologia de Resposta a Incidentes
+
+IRM # 13
+Resposta a incidentes de phishing
+Diretrizes para lidar com incidentes de phishing
+___________________________________________________
+
+E-Mail: 
+Web: 
+Twitter: 
+
+0 - Resumo
+
+Esta metodologia de Resposta a Incidentes é um folha de dicas dedicada a tratadores de incidentes que estão investigando um problema de segurança específico.
+
+Quem deve usar as folhas de IRM?
+
+• Administradores
+• Security Operation Center, ou CSIRTs
+• CISOs e suplentes
+• CERT (Computer Emergency Response Team)
+
+Lembre-se: Se você enfrentar um incidente, siga a IRM, tome notas e não entre em pânico. Contate seu CERT imediatamente, se necessário.
+
+0.1 - Tratamento das etapas do Incidente
+
+6 passos são definidos para lidar com incidentes de segurança
+
+Preparação: se preparar para lidar com o incidente
+Identificação: detectar o incidente
+Contenção: limitar o impacto do incidente
+Correcção: remover a ameaça
+Recuperação: recuperar para um estágio normal
+Resultados Finais: elaborar e melhorar o processo
+
+O IRM fornece informações detalhadas para cada etapa.
+
+Este documento é de uso público
+
+1 - Preparação
+
+Objetivo: Estabelecer contatos, definir procedimentos, coletar informações para economizar tempo durante um ataque.
+
+Criar uma lista de todos os domínios legítimos pertencentes à sua empresa. Isso ajudará a analisar a situação e impedir que você iniciar um procedimento de queda em um site legítimo esquecido.
+
+Prepare uma página web hospedada em sua infra-estrutura, pronto para ser publicado a qualquer hora, para alertar seus clientes sobre um ataque phishing em curso. Prepare e teste um procedimento de implantação claro.
+
+Prepare templates de e-mail para o procedimento de queda do site. Você vai usá-los para todos os casos de phishing, se possível em várias línguas. Isto irá acelerar as coisas ao tentar alcançar a empresa de hospedagem durante o processo de queda.
+
+1.1 - Contatos internos
+
+Mantenha uma lista de todas as pessoas envolvidas no registro de nomes de domínio na empresa.
+
+Manter uma lista de todas as pessoas credenciadas para tomar decisões sobre cibercriminalidade e eventuais ações sobre phishing. Se possível, tenha um acordo que mencione que você pode tomar decisões a esse respeito.
+
+1.2 - Contatos externos
+
+
+■ Tem várias maneiras de ser alcançado em tempo hábil (24 / 7, se possível):
+- Endereço de E-Mail, fácil de lembrar para todo mundo (ex: security @ yourcompany)
+- Formulários da Web no site da sua empresa (local do formulário é importante, não mais de 2 cliques de distância a partir da página principal)
+- Conta no Twitter visível
+
+■ Estabelecça e mantenha uma lista de contatos para takedown em:
+
+- As empresas de hospedagem
+- Empresas de Registro
+- Fornecedores de email
+
+■ Estabeleça e mantenha contatos com CERTs ao redor do mundo, eles provavelmente vão ser sempre capaz de ajudar se necessário.
+
+1.3 - Aumentar a conscientização dos clientes
+
+Não espere que os incidentes de phishing aconteçam para se comunicar com seus clientes. Aumente a conscientização sobre fraudes phishing, explique o que é phishing e garanta que seus clientes sabem que você nunca vai pedir-lhes credenciais ou informações bancárias por e-mail ou por telefone.
+
+1.4 - Sensibilizar a linha de negócio
+
+Pessoas em linhas de negócio devem estar cientes dos problemas do phishing e devem considerar a segurança como uma prioridade. Portanto, eles devem aplicar as boas práticas, como evitar o envio de links (URL) para os clientes, e usar uma assinatura afirmando que a empresa nunca irá pedir-lhes credencial ou informações bancárias on-line.
+
+
+2 - Identificação
+
+Objetivo: Detectar o incidente, determinar o seu escopo, e envolver as partes apropriadas.
+
+2.1 - Detecção de Phishing
+
+■ Monitore todos os seus pontos de contato de perto (e-mail, formulários web, etc)
+■ Implante armadilhas para spam e tente recolher o spam de parceiros / terceiros.
+■ Implante o monitoramento ativo de repositórios de phishing, como AA419 ou PhishTank por exemplo.
+■ Monitore qualquer especializados mailing-list você pode ter acesso, ou qualquer feed RSS / Twitter, que pode ser notificação de casos de phishing.
+Use sistemas de monitoramento automático em todas estas fontes, de modo que cada detecção dispara um alarme para a reação instantânea.
+■ Monitore seus web logs. Verifique não há referências suspeitas trazendo as pessoas ao seu website. Este é frequentemente o caso quando os sites de phishing leva o usuário ao site legítimo depois que ele foi enganado.
+
+2.2 - Envolva as partes apropriadas
+
+Assim que um site de phishing é detectado, entre em contato as pessoas na sua empresa que estão credenciadas para tomar uma decisão, se não for você.
+
+A decisão de agir sobre o endereço do site / e-mail fraudulento deve ser tomada o mais rapidamente, se possível dentro de minutos.
+
+2.3 - Coletar evidências
+
+Faça uma cópia autenticada do tempo nas páginas web de phishing. Use uma ferramenta eficiente de fazer isso, como HTTrack por exemplo. Não se esqueça de tomar todas as páginas do esquema de phishing, não apenas o primeiro se existem vários. Se necessário, tire screenshots das páginas.
+
+
+3 - Contenção
+
+Objetivo: mitigar os efeitos do ataque no ambiente alvo.
+
+■ Espalhe a URL do ataque em caso de um site de phishing.
+Use todos os sentidos que você tem que espalhar a URL fraudulento em todos os navegadores web: usar as opções do Internet Explorer, Chrome, Safari, Firefox, barra de ferramentas da Netcraft, Phishing Initiative, etc
+Isso vai impedir que os usuários acessem o site enquanto você trabalha na fase de correção.
+
+■ Espalhe o conteúdo de e-mail fraudulento sobre spam de relatórios sites / parceiros.
+■ Comunique-se com seus clientes.
+
+Implante o alerta / página de aviso com informações sobre o ataque de phishing em curso.
+
+Caso você esteja sendo impactado várias vezes por semana, nem sempre implantar um alerta / mensagem de aviso é a melhor abordagem mas sim uma página de phishing muito informativa para sensibilização.
+
+■ Verifique o código-fonte do site de phishing.
+- Veja onde os dados são exportados: ou a outro conteúdo web você não pode acessar (um script PHP normalmente), ou enviados por e-mail para o fraudador.
+- Veja como o phishing páginas é construída. Fazer os gráficos vir de um de seu Web site legítimo, ou são armazenados localmente?
+Se possível, no caso os gráficos são tomadas a partir de um de seus próprios sites, você pode mudar os gráficos para mostrar um "site de phishing" logo na página do fraudador.
+
+
+4 - Remediação
+
+Objetivo: Tomar medidas para parar a fraude.
+
+■ No caso das páginas de phishing fraudulentas que estão hospedadas em um site comprometido, tente entrar em contato com o proprietário do site. Explique claramente a fraude ao proprietário, de forma que ele tome as ações apropriadas: remova o conteúdo fraudulento, e acima de tudo melhore a segurança sobre ele, para que o fraudador não possa voltar usando a mesma vulnerabilidade.
+■ Em qualquer caso, também contater a empresa de hospedagem do site. Enviar e-mails para o contato endereços da empresa de hospedagem (geralmente há uma abuse@hostingcompany) e tentar encontrar alguém no telefone, para acelerar as coisas.
+■ Contato com a empresa de hospedagem de e-mail para encerrar as contas fraudulentas que recebem as credenciais roubadas ou informações de cartão de crédito.
+■ No caso de haver um redirecionamento (o link contido no e-mail, muitas vezes vai para uma URL redirecionamento) também derrube o redirecionamento entrando em contato com a empresa responsável pelo serviço.
+
+No caso de você não obter resposta, ou nenhuma ação é tomada, não hesite em chamar de volta e enviar e-mails em um intervalo regular, a cada duas horas, por exemplo.
+
+■ Se a queda é muito lenta, em contato com um CERT local no país envolvidos, o que poderia ajudar a derrubar a fraude.
+
+
+5 - Recuperação
+
+Objetivo: Volte ao estado funcional anterior.
+
+Avaliar o fim do caso de phishing
+
+■ Assegurar que as páginas fraudulentas e / ou endereço de correio electrónico estão em baixa.
+■ No final de uma campanha de phishing, remover a página de aviso associado do seu site.
+■ Mantenha monitoramento para a URL fraudulenta. Às vezes um site de phishing pode reaparecer algumas horas depois. No caso de um redirecionamento é usado e não retirado, monitorá-lo muito de perto.
+
+
+6 - Resultados Finais
+
+Objetivo: Documentar detalhes do incidente, discutir as lições aprendidas, e ajustar os planos e as defesas.
+
+■ Considere que o passo de "Preparação" poderia ter tormado a resposta ao incidente mais rápida ou mais eficiente.
+■ Atualize seus contatos, listas e adicione notas sobre qual é a forma mais eficaz entrar em contato com cada parte envolvida.
+■ Considere que os relacionamentos dentro e fora da sua organização pode ajudá-lo com incidentes futuros.
+■ Colabore com equipes jurídicas se uma ação judicial é necessária.

@@ -1,0 +1,176 @@
+Metodologia de Resposta a Incidentes
+
+IRM #2
+Detecção de Intrusão em Windows
+Análise Live em um Sistema Windows
+___________________________________________________
+
+E-Mail: 
+Web: 
+Twitter:
+
+0 - Resumo
+
+Esta metodologia de Resposta a Incidentes é um folha de dicas dedicada a tratadores de incidentes que estão investigando um problema de segurança específico.
+
+Quem deve usar as folhas de IRM?
+
+• Administradores
+• Security Operation Center, ou CSIRTs
+• CISOs e suplentes
+• CERT (Computer Emergency Response Team)
+
+Lembre-se: Se você enfrentar um incidente, siga a IRM, tome notas e não entre em pânico. Contate seu CERT imediatamente, se necessário.
+
+0.1 - Tratamento das etapas do Incidente
+
+6 passos são definidos para lidar com incidentes de segurança
+
+Preparação: se preparar para lidar com o incidente
+Identificação: detectar o incidente
+Contenção: limitar o impacto do incidente
+Correção: remover a ameaça
+Recuperação: recuperar para um estágio normal
+Resultados Finais: elaborar e melhorar o processo
+
+O IRM fornece informações detalhadas para cada etapa.
+
+Este documento é de uso público
+
+1 - Preparação
+
+■ O acesso físico ao sistema suspeito deve ser oferecido ao investigador forense. O acesso físico é preferível que o acesso remoto, uma vez que o hacker poderia detectar as investigações feitas no sistema (usando um sniffer de rede por exemplo).
+■ A cópia física do disco rígido poderá ser necessário para efeitos de forense e provas. Por fim, se necessário, um acesso físico pode ser necessário para desconectar a máquina suspeita de qualquer rede.
+■ Um bom conhecimento da atividade de rede usual da máquina/servidor é necessário. Você deverá ter um arquivo em um local seguro descrevendo a atividade das portas de costume, para comparar de forma eficiente para o estado atual.
+■ Um bom conhecimento dos serviços habituais em execução na máquina pode ser muito útil. Não hesite em pedir assistencia a um especialista de Windows, quando aplicável. Uma boa idéia também é ter um mapa de todos os serviços/processo de execução da máquina.
+
+Pode ser uma grande vantagem para trabalhar em um ambiente corporativo, onde todas as máquinas de usuários são as mesmos, instaladas a partir de um CD mestre ter um mapa de todos os processos/serviços/aplicações. No ambiente tal em que os usuários não têm permissão para instalar software, considere qualquer processo adicional/serviço/aplicação como suspeito.
+
+Quanto mais você souber sobre a máquina em seu estado limpo, mais chances você tem de detectar qualquer atividade fraudulenta em execução na mesma.
+
+2 - Identificação
+
+Por favor, note que a Sysinternals Troubleshooting Utilities pode ser usado para executar a maioria dessas tarefas.
+
+■ Contas incomuns
+Olhe para as contas incomuns criadas, especialmente no grupo de administradores:
+C:\> lusrmgr.msc
+ou
+C:\> net localgroup administrators ou net localgroup administradores
+
+■ Arquivos incomuns
+- Procure por arquivos excepcionalmente grandes com o apoio de armazenamento externo, maiores do que 5MB. (pode ser uma indicação de um sistema comprometido para armazenamento de conteúdo ilegal)
+- Procure por arquivos incomuns adicionados recentemente em pastas do sistema, especialmente C:\WINDOWS\system32.
+- Procure arquivos usando o atributo "hidden":
+C:\> dir /S /A:H
+- Use “windirstat” se possível.
+
+■ Entradas incomuns no registro
+Procure programas incomuns lançados no momento da inicialização no registro do Windows, especialmente:
+HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+HKLM\Software\Microsoft\Windows\CurrentVersion\Runonce
+HKLM\Software\Microsoft\Windows\CurrentVersion\RunonceEx
+Use “HiJackThis” se possível. (Também dê uma olhada na sua pasta de inicialização - Startup folder)
+
+■ Processos e Serviços incomuns
+Verifique todos os processos em execução para as entradas incomuns/desconhecidas, especialmente os processos com nome de usuário "SYSTEM" e "Administrador":
+C:\> taskmgr.exe
+(ou tlisk, tasklist dependendo versão do Windows)
+Use “psexplorer” se possível.
+
+■ Verificar pastas "autostart" dos usuários
+C:\Documents and Settings\user\Start Menu\Programs\Startup
+C:\WinNT\Profiles\user\Start Menu\Programs\Startup
+
+■ Procure por serviços de rede incomuns/inesperados instalados e iniciados
+C:\> services.msc
+C:\> net start
+
+■ Atividade de rede incomuns
+- Verificar se há compartilhamentos de arquivos e verificar se cada um está ligado a uma atividade normal:
+C:\> net view \\127.0.0.1
+Use “tcpview” se possível.
+- Veja as sessões abertas na máquina:
+C:\> net session
+- Dê uma olhada nas sessões que a máquina abriu com outros sistemas:
+C:\> net use
+- Verifique se existe alguma conexão Netbios suspeita:
+C:\> nbtstat –S
+- Procure qualquer atividade suspeita nas portas do sistema:
+C:\> netstat –na 5 (5 faz ser atualizado a cada 5 segundos)
+Use –o flag para Windows XP/2003 para ver o proprietário de cada processo:
+C:\> netstat –nao 5
+Use “fport” se possível.
+
+■ Tarefas automatizadas incomuns
+Veja a lista de tarefas agendadas para qualquer entrada incomum:
+C:\> at
+No Windows 2003/XP: 
+C:\> schtasks
+
+■ Entradas de log incomuns
+Observar os arquivos de log para entradas incomuns:
+C:\> eventvwr.msc
+Se possível, use “Event Log Viewer” ou use uma ferranta de busca para eventos que afetem o firewall, o antivírus, a proteção dos arquivos, ou qualquer novo serviço suspeito.
+Procure por uma enorme quantidade de tentativas de login ou contas bloqueadas.
+Prestar atenção aos arquivos de log do seu firewall (se houver) para atividades suspeitas.
+
+■ Verificar Rootkits
+Execute “Rootkit Revealer”, “Rootkit Hooker”, “Ice Sword”, “Rk Detector”, “SysInspector”, “Rootkit Buster”.
+É sempre melhor executar várias destas ferramentas do que apenas uma.
+
+■ Verificar Malware
+Executar pelo menos um produto anti-virus no disco inteiro. Se possível, utilize vários produtos anti-vírus. O anti-vírus deve ser obrigatoriamente atualizado.
+
+3 - Contenção
+
+Se a máquina é considerada crítica para a atividade de negócios da empresa e não pode ser desconectada, faça backup de todas as informações importantes para o caso de hacker descobrir que você está investigando e começe a apagar arquivos. Também faça uma cópia da memória do sistema para posterior análise. (usar ferramentas como o Memoryze, win32dd etc)
+
+Se a máquina não é considerada crítica para a sua empresa e pode ser desligada, desligue a máquina da maneira mais difícil, remova o plugue da tomada. Se for um computador portátil com uma bateria, basta apertar o botão "off" por alguns segundos até que o computador seja desligado.
+
+Investigações off-line devem ser iniciadas imediatamente se a sua análise ao vivo não deu qualquer resultado, mas o sistema ainda deve ser considerado comprometido.
+
+Faça uma cópia física (bit a bit) do disco rígido inteiro em um armazenamento externo de suporte, usando o EnCase, X-Ways, ou outra ferramenta forense similar (dd, ddrescue etc.)
+
+Tente encontrar evidências de todas as ações do hacker:
+
+■ Encontrar todos os arquivos usados ​​pelo atacante, incluindo arquivos excluídos (use as ferramentas forense) e ver o que foi feito com ele ou pelo menos sua funcionalidade, a fim de avaliar a ameaça.
+■ Verifique todos os arquivos acessados ​​recentemente.
+■ Verifique compartilhamentos de rede para ver se o malware se espalhou através dele.
+■ Mais geralmente, tentar descobrir como o atacante entrou no sistema. Todas as conexões devem ser consideradas. Se nenhuma prova computacional da intrusão é encontrado, nunca se esqueça que poderia vir de um acesso físico ou uma cumplicidade / roubo de informações de um funcionário.
+■ Aplique as correções do quando for o caso (sistema operacional e aplicativos), caso o atacante tenha usado alguma vulnerabilidade conhecida.
+
+
+4 - Remediação
+
+Caso o sistema tenha sido comprometido:
+■ Temporariamente remova todos os acessos às contas envolvidas no incidente.
+■ Remova todos os arquivos maliciosos instalados pelo atacante.
+
+
+5 - Recuperação
+
+Não importa quão longe o hacker entrou no sistema e o conhecimento que você possa ter sobre o comprometimento, desde que o sistema tenha sido penetrado, a melhor prática é reinstalar o sistema totalmente a partir da mídia original e aplicar todas as correções para o sistema recem-instalado.
+
+Caso esta solução não pode ser aplicada, você deve:
+
+■ Alterar todas as senhas das contas do sistema, e fazer com que seus usuários façam isso de forma segura: eles devem usar senhas com maiúsculas/minúsculas, caracteres especiais, números e pelo menos 8 caracteres.
+■ Restaurar todos os arquivos que podem ter sido alteradas (Exemplo: svchost.exe) pelo atacante.
+
+
+6 - Resultados Finais
+
+6.1 - Relatório
+
+Um relatório de crise deve ser escrito e disponibilizado a todos os atores da célula de gestão de crises.
+
+Os seguintes temas devem ser descritos:
+- Causa inicial da infecção
+- Ações e cronogramas de cada acontecimento importante
+- O que deu certo
+- O que deu errado
+- O custo do Incidente
+
+6.2 - Capitalize
+
+Ações para melhorar os processos de gestão de infecção por worm devem ser definidas para capitalizar sobre essa experiência.

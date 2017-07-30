@@ -1,0 +1,168 @@
+Metodologia de Resposta a Incidentes
+
+IRM # 5
+Comportamento da rede malicioso
+Diretrizes para lidar com uma atividade de rede suspeitos
+___________________________________________________
+
+E-Mail: 
+Web: 
+Twitter: 
+
+0 - Resumo
+
+Esta metodologia de Resposta a Incidentes é um folha de dicas dedicada a tratadores de incidentes que estão investigando um problema de segurança específico.
+
+Quem deve usar as folhas de IRM?
+
+• Administradores
+• Security Operation Center, ou CSIRTs
+• CISOs e suplentes
+• CERT (Computer Emergency Response Team)
+
+Lembre-se: Se você enfrentar um incidente, siga a IRM, tome notas e não entre em pânico. Contate seu CERT imediatamente, se necessário.
+
+0.1 - Tratamento das etapas do Incidente
+
+6 passos são definidos para lidar com incidentes de segurança
+
+Preparação: se preparar para lidar com o incidente
+Identificação: detectar o incidente
+Contenção: limitar o impacto do incidente
+Correção: remover a ameaça
+Recuperação: recuperar para um estágio normal
+Resultados Finais: elaborar e melhorar o processo
+
+O IRM fornece informações detalhadas para cada etapa.
+
+Este documento é de uso público
+
+1 - Preparação
+
+Objetivo: Estabelecer contatos, definir procedimentos, coletar informações e se familiarizar com ferramentas de detecção de intrusão para economizar tempo durante um ataque.
+
+1.1 - Sistemas de Detecção de Intrusão
+■ Certifique-se que as ferramentas de monitoramento estão atualizados;
+■ Estabelecer contatos com sua rede e as equipes de operação de segurança;
+■ Certifique-se que um processo de notificação de alerta está definido e é bem conhecido por todos.
+
+
+1.2 - Rede
+■ Certifique-se que um inventário dos pontos de acesso à rede está disponível e atualizado;
+■ Certifique-se que as equipes da rede têm acesso aos mapas de rede e configurações;
+■ Procure potenciais pontos de acesso de rede indesejado (xDSL, Wi-Fi, Modem, ...) periodicamente e feche-os;
+■ Certifique-se que as ferramentas de gestão de tráfego e os processos são operacionais.
+
+
+1.3 - Tráfego de base
+■ Identificar o tráfego de base e fluxos;
+■ Identificar os fluxos de negócios críticos.
+
+
+2 - Identificação
+
+Objetivo: Detectar o incidente, determinar o seu escopo, e envolver as partes apropriadas.
+
+2.1 - Fontes de detecção:
+
+■ Notificação por utilizador / helpdesk;
+■ Alerta de IDS;
+■ Detecção por funcionários da rede;
+■ Reclamações de uma fonte externa.
+
+2.2 - Grave a atividade de rede suspeito
+
+Quadros de rede podem ser armazenados em um arquivo e transmitida para a sua equipe de resposta a incidentes para análise posterior.
+Use ferramentas de rede de captura (tshark, windump, tcpdump ...) para despejar o tráfego malicioso. Use um hub ou espelhamento de porta em uma LAN afetadas para coletar dados valiosos.
+Forense de rede requere habilidades e conhecimentos prévios. Peça a sua equipe de resposta a incidentes de assistência ou conselhos.
+
+2.3 - Analisar o ataque
+
+■ Analisar os alertas gerados pelo seu IDS;
+■ Rever estatísticas e logs dos dispositivos de rede;
+■ Tente entender o objetivo do tráfego malicioso e identificar os componentes da infra-estrutura afetados por ele;
+■ Identificar as características técnicas do tráfego:
+- Endereço IP de origem(s)
+- Portas usadas, TTL, ID de pacote, ...
+- Protocolos usados
+- Máquinas Targeted/serviços
+- Exploit(s)
+- Contas Remoto logadas
+No final desta etapa, as máquinas afetadas e o modus operandi do ataque deve ser identificado. Idealmente, a fonte do ataque deve ser identificada também. Isto é onde você deve fazer suas investigações forenses, se necessário.
+Se um computador comprometido foi identificado, verifique os cheat sheets IRM dedicados à intrusão.
+ 
+
+3 - Contenção
+
+Objetivo: Reduzir os efeitos do ataque aos limites dos recursos de TI.
+
+Se a questão é considerada como estratégica (acesso a recursos sensíveis), uma célula específica de gestão de crise deve ser ativado.
+
+Dependendo da criticidade dos recursos afetados, os seguintes passos podem ser executados e monitorados:
+
+■ Desconecte a área comprometida a partir da rede.
+■ Isole a origem do ataque. Desligue o computador afetado(s) a fim de realizar uma investigação mais aprofundada.
+■ Encontre medidas de mitigação aceitáveis para o tráfego de negócios críticos, de acordo com os gerentes de linha de negócios.
+■ Termine conexões indesejadas ou processos em máquinas afetadas.
+■ Use regras de firewall / IPS para bloquear o ataque.
+■ Use regras de IDS para este comportamento malicioso e informe o pessoal técnico de novos eventos.
+■ Aplicar ações ad hoc em caso de problema estratégico:
+- Bloqueie a exfiltração de destino ou localização remota em filtros de Internet;
+- Restringir de forma estratégica que servidores de arquivos rejeitem conexões a partir do computador infectado;
+- Selecione os tipo de arquivos podem ser perdidos/roubados e restrinja o acesso para os arquivos confidenciais;
+- Crie documentos falsos com marca d'água que poderia ser usado como uma prova de roubo;
+- Notifique os usuários de negócios direcionados sobre o que deve ser feito e o que é proibido;
+- Configure os recursos de registro no modo detalhado sobre o meio ambiente-alvo e armazene-os em um servidor remoto seguro.
+
+
+4 - Remediação
+
+Objetivo: Tomar medidas para interromper o comportamento malicioso.
+
+4.1 - Bloqueie a Origem
+
+■ Usando a análise da identificação etapas anteriores e de contenção, descobrir todos os canais de comunicação utilizados pelo atacante e bloqueá-los em todos os limites a sua rede.
+■ Se a fonte tem sido identificada como um interno, tomar as medidas apropriadas e envolvem a sua gestão e / ou equipe de RH e / ou equipe legal.
+■ Se a fonte tem sido identificada como um agressor externo, envolvendo equipes que considerem abuso e serviços de aplicação da lei, se necessário.
+
+4.2 - Técnicas de remediação
+
+■ Definir um processo de remediação. Se necessário, este processo pode ser validado por uma outra estrutura, como a sua equipe de resposta a incidentes, por exemplo.
+■ Medidas de remediação de intrusão IRM também pode ser útil.
+
+4.3 - Teste e aplicação
+
+■ Teste o processo de remediação e certifique-se que ele funciona corretamente sem danificar qualquer serviço.
+■ Aplicar o processo de remediação, uma vez os testes tenham sido aprovadas por ambas as áreas de TI e de negócios.
+
+
+5 - Recuperação
+
+Objetivo: restaurar o sistema para operações normais.
+
+1. Garantir que o tráfego da rede está de volta ao normal
+2. Re-permitir o tráfego de rede que foi usada como um método de propagação pelo atacante
+3. Reconectar sub-áreas em conjunto, se necessário
+4. Reconectar a área à sua rede local, se necessário
+5. Reconectar a área à Internet se necessário
+
+Todas estas etapas devem ser feitos em uma maneira passo a passo e com um acompanhamento técnico.
+
+
+6 - Resultados Finais
+
+Objetivo: Documentar os detalhes do incidente, discutir as lições aprendidas, e ajustar os planos e as defesas.
+
+6.1 - Relatório
+
+Um relatório deve ser escrito e disponibilizado a todos os atores.
+Os seguintes temas devem ser descritos:
+- Causa inicial do problema
+- Ações e prazos
+- O que deu certo
+- O que deu errado
+- Custo de Incidentes
+
+6.2 - Capitalize
+
+Ações para melhorar a rede de processos de gestão de intrusão devem ser definidos para capitalizar sobre essa experiência.

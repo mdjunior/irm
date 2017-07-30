@@ -1,0 +1,167 @@
+Metodologia de Resposta a Incidentes
+
+IRM #1
+Resposta a Infecção por Worm
+Diretrizes para lidar com infecções por Worm em sistemas de informação
+___________________________________________________
+
+Worm Infection Response
+E-Mail: 
+Web: 
+Twitter: 
+
+0 - Resumo
+
+Esta metodologia de Resposta a Incidentes é um folha de dicas dedicada a tratadores de incidentes que estão investigando um problema de segurança específico.
+
+Quem deve usar as folhas de IRM?
+
+• Administradores
+• Security Operation Center, ou CSIRTs
+• CISOs e suplentes
+• CERT (Computer Emergency Response Team)
+
+Lembre-se: Se você enfrentar um incidente, siga a IRM, tome notas e não entre em pânico. Contate seu CERT imediatamente, se necessário.
+
+0.1 - Tratamento das etapas do Incidente
+
+6 passos são definidos para lidar com incidentes de segurança
+
+Preparação: se preparar para lidar com o incidente
+Identificação: detectar o incidente
+Contenção: limitar o impacto do incidente
+Correção: remover a ameaça
+Recuperação: recuperar para um estágio normal
+Resultados Finais: elaborar e melhorar o processo
+
+O IRM fornece informações detalhadas para cada etapa.
+
+Este documento é de uso público
+
+1 - Preparação
+
+■ Definir atores, para cada entidade, que estarão envolvidos dentro da célula de crise. Esses atores devem estar documentados em uma lista de contatos mantida permanentemente atualizada.
+■ Certifique-se que as ferramentas de análise estão em alta, funcionais (Antivirus, IDS, analisadores de logs), não comprometidas, e atualizadas.
+■ Certifique-se de ter o mapa da arquitetura de suas redes.
+■ Certifique-se que um inventário atualizado dos ativos está disponível.
+■ Realizar uma vigilância de segurança contínua e informar as pessoas encarregadas da segurança acerca das tendências de ameaças.
+
+2 - Identificação
+
+2.1 - Detectar a infecção
+
+Informações provenientes de várias fontes devem ser recolhidos e analisadas​​:
+
+■ Logs de antivírus
+■ Sistemas de Detecção de Intrusão,
+■ Tentativas de conexão suspeitas em servidores,
+■ Alta quantidade de contas bloqueadas,
+■ Tráfego de rede suspeito,
+■ Tentativas de conexão suspeitas em firewalls,
+■ Elevado aumento de chamadas de suporte,
+■ Carga elevada ou congelamento do sistema,
+■ O elevado volume de emails enviados
+
+Se um ou vários desses sintomas foram vistos, os atores definidos no passo de "preparação"  irão entrar em contato e, se necessário, criar uma célula de crise.
+
+2.2 - Identificar a infecção
+
+Analisar os sintomas para identificar o worm, os vetores de sua propagação e as contramedidas.
+
+Primeiros passos podem ser encontrados em:
+■ Boletins do CERT;
+■ Contatos de suporte externo (empresas de antivírus, etc);
+■ Websites de Segurança (Secunia, SecurityFocus, etc)
+
+Notifique seu Chief Information Security Officer.
+Contate seu CERT, se necessário.
+
+2.3 - Avaliar o perímetro da infecção
+
+Definir os limites da infecção (ie: infecção global, limitada a uma filial, etc.)
+Se possível, identificar o impacto da infecção nos negócios.
+
+3 - Contenção
+
+As seguintes ações devem ser realizadas e monitoradas pela gestão da célula de crise:
+
+1. Desligue a área infectada da Internet.
+
+2. Isole a área infectada. Desconecte-a de qualquer rede.
+
+3. Se o trafego for crítico para os negócios e não pode ser desconectado, somente permita que continue na rede depois de assegurar que ele não pode ser um vetor de infecção ou depois que encontrar técnicas evasivas de validação.
+
+4. Neutralizar os vetores de propagação. Um vetor de propagação pode ser qualquer coisa desde tráfego de rede até falha de software. Contramedidas relevantes têm de ser aplicadas (patch, bloqueio de tráfego, desativação de dispositivos, etc)
+Por exemplo, as seguintes técnicas podem ser utilizadas:
+- Implantação de ferramentas de patch (WSUS),
+- Windows GPO,
+- Regras de firewall,
+- Procedimentos operacionais.
+
+5. Repita os passos 2 até 4 em cada sub-área integrante da zona infectada até o worm parar de se espalhar. Se possível, monitore a infecção usando as ferramentas de análise (antivírus console, logs do servidor, chamadas de suporte).
+
+A propagação do worm deve ser monitorada.
+
+Dispositivos móveis
+
+Certifique-se que nenhum laptop, PDA ou armazenamento móvel pode ser usado como um vetor de propagação do worm.
+Se possível, bloqueie todas as suas conexões.
+
+Pergunte usuários finais para seguir as diretivas precisamente.
+
+4 - Remediação
+
+4.1 - Identificar
+
+Identificar as ferramentas e métodos de remediação.
+Os seguintes recursos devem ser considerados:
+- Correções do Fornecedor (Microsoft, Oracle, etc)
+- Banco de dados de assinaturas de antivirus
+- Contatos de suporte externo
+- Web sites de segurança
+Definir um processo de desinfecção. O processo tem de ser validado por uma estrutura externa, como o CERT, por exemplo.
+
+4.2 - Teste
+
+Testar o processo de desinfecção e certifique que ele funciona corretamente sem danificar qualquer serviço.
+
+4.3 - Implantar
+
+Implantar ferramentas de desinfecção. Várias opções podem a ser usadas:
+- Windows WSUS
+- GPO
+- Implantação de assinatura de antivírus
+- Desinfecção manual
+
+Atenção: alguns worms podem bloquear alguns dos métodos de implantação de remediação. Se assim for, uma solução tem de ser encontrada.
+
+O progresso da remediação deve ser monitorado pela célula de crise.
+
+5 - Recuperação
+
+Verifique se todos os passos anteriores foram feitos corretamente e obtenha uma aprovação da gerência antes de executar os próximos passos.
+
+1. Reabra o tráfego da rede que foi usada como um método de propagação do worm.
+2. Reconecte sub-áreas juntas
+3. Reconecte os notebooks à área
+4. Reconecte a área a sua rede local
+5. Reconecte a área à Internet
+
+Todas estas etapas devem ser feitas em um passo a passo e um acompanhamento técnico deve ser aplicado pela equipe de crise.
+
+6 - Resultados Finais
+
+6.1 - Relatório
+
+Um relatório de crise deve ser escrito e disponibilizado a todos os atores da célula de gestão de crises.
+
+Os seguintes temas devem ser descritos:
+- Causa inicial da infecção
+- Ações e cronogramas de cada acontecimento importante
+- O que deu certo
+- O que deu errado
+- O custo do Incidente
+
+6.2 - Capitalize
+
+Ações para melhorar os processos de gestão de infecção por worm devem ser definidas para capitalizar sobre essa experiência.

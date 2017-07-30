@@ -1,0 +1,138 @@
+Metodologia de Resposta a Incidentes
+
+IRM # 8
+Chantagem
+Diretrizes para lidar com tentativa de chantagem
+___________________________________________________
+
+E-Mail: 
+Web: 
+Twitter: 
+
+0 - Resumo
+
+Esta metodologia de Resposta a Incidentes é um folha de dicas dedicada a tratadores de incidentes que estão investigando um problema de segurança específico.
+
+Quem deve usar as folhas de IRM?
+
+• Administradores
+• Security Operation Center, ou CSIRTs
+• CISOs e suplentes
+• CERT (Computer Emergency Response Team)
+
+Lembre-se: Se você enfrentar um incidente, siga a IRM, tome notas e não entre em pânico. Contate seu CERT imediatamente, se necessário.
+
+0.1 - Tratamento das etapas do Incidente
+
+6 passos são definidos para lidar com incidentes de segurança
+
+Preparação: se preparar para lidar com o incidente
+Identificação: detectar o incidente
+Contenção: limitar o impacto do incidente
+Correcção: remover a ameaça
+Recuperação: recuperar para um estágio normal
+Resultados Finais: elaborar e melhorar o processo
+
+O IRM fornece informações detalhadas para cada etapa.
+
+Este documento é de uso público
+
+1 - Preparação
+
+Objetivo: Estabelecer contatos, definir procedimentos e reunir informações para economizar tempo durante um ataque.
+
+1.1 - Contactos
+
+■ Identificar contatos internos (equipe de segurança, equipe de resposta a incidente, o departamento jurídico etc)
+■ Identificar os contatos externos, que poderiam ser necessários, principalmente para fins de investigação como a aplicação da lei.
+■ Certifique-se que a segurança do processo de escalação de incidentes é definido e os atores estão claramente definidos.
+■ Certifique-se de ter capacidades de inteligência (comunidades, contato, etc) que podem estar envolvidos em tais incidentes.
+
+1.2 - Conscientização
+
+■ Certifique-se que todos os empregados relevantes estão cientes dos problemas que envolvam chantagem. Isto pode ser parte do programa de conscientização de segurança.
+
+Verificar processo de backup e de resposta a incidentes está em vigor e atualizado.
+
+2 - Identificação
+
+Objetivo: Detectar o incidente, determinar o seu escopo, e envolver as partes apropriadas.
+
+■ Alerte as pessoas relevantes
+■ Mantenha os traços de todas as comunicações relacionadas com o incidente (não enviar e-mails para o lixo; escrever qualquer tipo de contato telefônico com número de telefone e fax timestamp se, disponíveis, etc) Tentar obter tantos detalhes quanto você pode sobre o autor ( nome, fax, endereço postal, etc)
+■ Examine possíveis cursos de ações com sua equipe de resposta a incidentes e da equipe legal.
+■ Se os dados internos estão em risco, verificar se você tem um backup de segurança do mesmo e tentar descobrir como eles foram recolhidos.
+■ Incluir o topo da gestão para informá-los de que a chantagem está acontecendo e está sendo tratado de acordo com um processo definido.
+
+3 - Contenção
+
+Objetivo: mitigar os efeitos do ataque no ambiente alvo.
+
+Determine como você pode responder à chantagem e as conseqüências e os custos de se ignorar, respondendo sim ou não.
+
+3.1 - Ameaças mais comuns enviadas com chantagens são:
+■ Negação de serviço
+■ Revelar dados sensíveis na Internet (cartão de crédito ou outros dados pessoais dos clientes internos ou de um trabalhador/diretor, os dados confidenciais da empresa, etc)
+■ Revelar informações particulares sobre funcionários / VIPs 
+■ Bloquear o acesso a dados (eliminados ou criptografados através de ransomware, por exemplo [1])
+■ Enviar emails em massa usando a marca (spam, pornografia infantil [2], os boatos ruins, etc)
+
+
+3.2 - Verifique o background
+
+■ Verifique se as tentativas de chantagem semelhantes ocorreram no passado. Verifique se outras empresas foram ameaçadas também.
+■ Todos os dados técnicos relacionados deve ser cuidadosamente verificados e recolhidos para fins de investigação;
+■ Pesquise se alguém teria algum interesse em ameaçar sua empresa
+- Concorrentes
+Grupos ideologicamente motivados -
+- Ex-funcionários ou correntes
+
+Tente identificar o atacante com as peças de informação disponíveis.
+Mais geralmente, tentar descobrir como o atacante entrou no sistema ou como possui o objeto da chantagem.
+
+[1] http://en.wikipedia.org/wiki/Ransomware_ (malware)
+[2] Sites de apostas chantageou com pornografia infantil, 27/10/2004 http://software.silicon.com/malware/0, 3800003100,39125346,00. Htm
+
+
+Contactar a polícia local para informá-los.
+
+Tentar ganhar tempo e detalhes do fraudador. Pergunte:
+■ A prova do que ele disse: Exemplo de dados, a prova da intrusão, etc
+■ Tempo para conseguir o que o fraudador quer (dinheiro, etc)
+
+
+4 - Remediação
+
+Objetivo: Tomar medidas para remover a ameaça e evitar futuros incidentes.
+
+Se uma falha foi identificada em um ativo ou um processo técnico que permite que o invasor tenha acesso ao objeto da chantagem, peça a correção imediata para evitar outro caso.
+
+■ Depois de obter tanta informação quanto possível, ignorar a chantagem e garantir a apropriada assistência para detectar e reagir de acordo sobre qualquer novo acontecimento.
+■ Não tome qualquer decisão de remediação sozinho se ativos estratégicos ou pessoas são os alvos. Envolva os departamentos apropriados
+
+5 - Recuperação
+
+Objetivo: restaurar o sistema para operações normais.
+
+Notificar a gerência das ações e da decisão tomada sobre a questão da chantagem.
+
+6 - Resultados Finais
+
+Objetivo: Documentar detalhes do incidente, discutir as lições aprendidas, e ajustar os planos e as defesas.
+Se você não quiser registrar uma reclamação, pelo menos, comunique a Polícia pois outras organizações podem ser afetadas. Ao mesmo tempo, informe a hierarquia e suas subsidiárias a ter uma posição única no caso de o golpista tenta chantagear um outro departamento interno.
+
+6,1 - Relatório
+
+Um relatório de incidente deve ser escrito e disponibilizado a todos os atores do incidente.
+
+Os seguintes temas devem ser descritos:
+■ Detecção inicial
+■ Ações e prazos
+■ O que deu certo
+■ O que deu errado
+■ Custo do Incidente
+
+6.2 - Capitalize
+
+Ações para melhorar os processos de manipulação de chantagem deve ser definidos para capitalizar sobre essa experiência.
+

@@ -1,0 +1,147 @@
+Metodologia de Resposta a Incidentes
+
+IRM # 12
+Abuso de informação privilegiada
+Lidar com informações internas divulgadas intencionalmente
+___________________________________________________
+
+E-Mail: 
+Web: 
+Twitter:
+
+0 - Resumo
+
+Esta metodologia de Resposta a Incidentes é um folha de dicas dedicada a tratadores de incidentes que estão investigando um problema de segurança específico.
+
+Quem deve usar as folhas de IRM?
+
+• Administradores
+• Security Operation Center, ou CSIRTs
+• CISOs e suplentes
+• CERT (Computer Emergency Response Team)
+
+Lembre-se: Se você enfrentar um incidente, siga a IRM, tome notas e não entre em pânico. Contate seu CERT imediatamente, se necessário.
+
+0.1 - Tratamento das etapas do Incidente
+
+6 passos são definidos para lidar com incidentes de segurança
+
+Preparação: se preparar para lidar com o incidente
+Identificação: detectar o incidente
+Contenção: limitar o impacto do incidente
+Correção: remover a ameaça
+Recuperação: recuperar para um estágio normal
+Resultados Finais: elaborar e melhorar o processo
+
+O IRM fornece informações detalhadas para cada etapa.
+
+Este documento é de uso público
+
+1 - Preparação
+
+Objetivo: Estabelecer contatos, definir procedimentos e reunir informações para economizar tempo durante o tratamento de incidentes.
+
+Contatos
+
+■ Certifique-se de ter pontos de contato na sua equipe de relações públicas, a equipe de recursos humanos e departamento jurídico
+■ Tenha um recurso de log centralizado
+■ Certifique-se de ter uma autorização global e um processo de depuração. Este processo deve cuidar especialmente da retirada de privilégios em empregos anteriores
+■ Fornecer autenticação forte de acordo com o risco da aplicação de negócio
+ 
+2 - Identificação
+
+Objetivo: Detectar o incidente, determinar o seu escopo, e envolver as partes apropriadas.
+
+Abusos internos são difíceis de detectar e não há dicas de 100% de sucesso. 
+
+2.1 - Identificação técnica
+
+■ Alertas de um comportamento mal-intencionado ou de ferramentas SIEM de correlação que podem ter detectado com a correlação de vários eventos anormais
+■ Alertas de um IDS / IPS ao detectar uma intrusão
+
+No caso de o invasor tentou invadir o sistema, um Sistema de Detecção de Intrusão (ou Intrusion Prevention System) pode ser capaz de acionar um alerta.
+
+2.2 - Identificação humana
+
+■ Gestão:
+O gerente do interno pode ser o primeiro a notar o comportamento suspeito.
+■ Controle de risco, conformidade:
+Estas equipas que têm os seus próprios sistemas para detectar anomalias de funcionamento. Eles também podem disparar alertas se algo de anormal foi detectado.
+■ Colegas:
+Colegas do interno são talvez o canal mais confiável de notificação, porque eles sabem as tarefas, o processo e os impactos que o emprego do indivíduo deve ter. Eles podem adivinhar facilmente acontecer. valiosos perfeitamente em seu o que é
+■ Partes externas:
+Parceiros externos ou estrutura pode também têm suas próprias capacidades de detecção. Se as operações foram falsificados internamente, essas entidades externas podem trazer um esclarecimento real.
+
+3 - Contenção
+
+Objetivo: mitigar os efeitos do ataque no ambiente alvo.
+
+Não faça nada, sem um pedido por escrito do CISO em causa / pessoa responsável.
+Com base na sua equipe de assessoria jurídica, uma autorização escrita do utilizador em causa também pode ser útil.
+
+■ Envolva pessoas:
+Pessoas diferentes devem ser informadas sobre o abuso de forma que eles possam ajudar nisso. Isto inclui a gestão de RH, gestão jurídica, gestão de negócios e o gerente de negócio do interno suspeito.
+■ Reunião:
+Um gestor de RH deve atender ao interno suspeito para explicar a ele / ela o que foi encontrado e o que vai acontecer. Apoio pode ser exigido de pessoas jurídicas, técnicas e de gestão.
+■ Redução de privilégios:
+Se é permitido ao interno suspeito permanecer no trabalho até o final da investigação, fornecer ele / ela um computador com privilégios mínimos.
+■ Suspender autorizações:
+Suspenda o acesso e autorizações do interno suspeito. Isto deve incluir a depuração da aplicação. Isso também pode incluir contas do sistema, chaves, crachá da instalação.
+■ Acesso remoto:
+Suspender recursos de acesso remoto, ou seja: smartphones, as contas de VPN, tokens ...
+■ Apreensão:
+Aproveitar todos os dispositivos de computação profissional do interno suspeito.
+
+
+Caso 1: atividade anormal
+
+Se nada malicioso ou fraudulento está confirmado ainda, duas investigações devem começar agora mesmo:
+- Investigação forense sobre os dispositivos de computação do interno suspeito.
+- Investigação sobre os log de auditoria de diferentes componentes
+
+Caso 2: atividades maliciosas / fraudulentas
+
+Se o comportamento malicioso ou fraudulento já está confirmado, pensar sobre uma queixa contra o interno suspeito.
+Neste caso, não faça qualquer outra ações técnicas. Fornecer à equipe legal ou ao oficial da lei todas as evidências solicitadas e estar pronto para ajudar na demanda.
+
+Se danos colaterais podem resultar do abuso, certifique-se de conter os impactos do incidente antes de torná-la pública. Certifique-se de informar as autoridades, se necessário.
+
+4 - Remediação
+
+Objetivo: Tomar medidas para remover a ameaça e evitar futuros incidentes.
+
+A parte de remediação é bastante limitada no caso de um abuso do interno. Seguintes ações podem ser considerados dependendo do caso:
+■ Adotar uma ação disciplinar contra o funcionário mal-intencionado (ou rescindir o contrato) e retirar todos os seus / suas credenciais.
+■ Excluir todas as operações fictícias ou fraudulentas feitas pela interno
+■ Rever todos os programas ou scripts feitos pelo interno e remover todos os códigos desnecessários
+
+5 - Recuperação
+
+Objetivo: restaurar o sistema para operações normais.
+
+Mesmo se o incidente não tenha se tornado público,  não se esqueça de avisar todos os interessados ​​afetados (clientes, parceiros em potencial ...) e autoridades necessárias. Esta comunicação deve ser feita pelo topo da gestão em caso de grandes impactos.
+
+Eventualmente alertar seus empregados ou algumas equipes locais sobre o assunto para sensibilizar e aumentar a regras de segurança.
+
+6 - Resultados Finais
+
+Objetivo: Documentar detalhes do incidente, discutir as lições aprendidas, e ajustar os planos e as defesas.
+
+6,1 - Relatório
+
+Um relatório de incidente deve ser escrito e disponibilizado a todos os atores do incidente.
+
+Os seguintes temas devem ser descritos:
+■ Detecção inicial
+■ Ações e prazos
+■ O que deu certo
+■ O que deu errado
+■ Impacto do incidente
+
+6.2 - Capitalize
+
+Alguma melhora pode ser especialmente valiosa, considerando o abuso:
+■ Processo de melhorias de autorizações
+■ Controles de melhorias na organização
+■ Conscientização sobre fraude e atividade maliciosa 
+

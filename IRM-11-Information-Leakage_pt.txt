@@ -1,0 +1,155 @@
+Metodologia de Resposta a Incidentes
+
+IRM # 11
+Vazamento de Informações
+Lidar com informações internas divulgadas intencionalmente
+___________________________________________________
+
+
+E-Mail: 
+Web: 
+Twitter: 
+
+0 - Resumo
+
+Esta metodologia de Resposta a Incidentes é um folha de dicas dedicada a tratadores de incidentes que estão investigando um problema de segurança específico.
+
+Quem deve usar as folhas de IRM?
+
+• Administradores
+• Security Operation Center, ou CSIRTs
+• CISOs e suplentes
+• CERT (Computer Emergency Response Team)
+
+Lembre-se: Se você enfrentar um incidente, siga a IRM, tome notas e não entre em pânico. Contate seu CERT imediatamente, se necessário.
+
+0.1 - Tratamento das etapas do Incidente
+
+6 passos são definidos para lidar com incidentes de segurança
+
+Preparação: se preparar para lidar com o incidente
+Identificação: detectar o incidente
+Contenção: limitar o impacto do incidente
+Correção: remover a ameaça
+Recuperação: recuperar para um estágio normal
+Resultados Finais: elaborar e melhorar o processo
+
+O IRM fornece informações detalhadas para cada etapa.
+
+Este documento é de uso público
+
+1 - Preparação
+
+Objetivo: Estabelecer contatos, definir procedimentos e reunir informações para economizar tempo durante o tratamento de incidentes.
+
+1.1 - Contatos
+
+■ Identificar contatos técnicos internos (equipe de segurança, a equipe de resposta a incidentes ...)
+■ Certifique-se de ter pontos de contato na sua equipe de relações públicas, a equipe de recursos humanos e departamento jurídico
+■ Identifique os contatos externos, que poderiam ser necessários, principalmente para fins de investigação (como a aplicação da lei, por exemplo).
+
+1.2 - A política de segurança
+
+■ Certifique-se que o valor da informação corporativa é explicada nas regras de procedimento, o gráfico de TI, conscientização e treinamento
+■ Certifique-se de todos os bens valiosos são identificados como deveriam ser
+■ Certifique-se de que a segurança do processo de escalação de incidentes é definido e os atores estão claramente definidos e identificados.
+
+2 - Identificação
+
+Objetivo: Detectar o incidente, determinar o seu escopo, e envolver as partes apropriadas.
+
+Vazamento de dados podem ocorrer em qualquer lugar. Lembre-se que a causa do vazamento pode ser um funcionário de bom ou mau grado ignorando questões de segurança, ou um computador comprometido.
+
+Passo 1: DETECTAR A QUESTÃO
+
+■ Processo de notificação de incidentes:
+Informação interna pode ser uma boa fonte de detecção: confiança dos funcionários, equipe de segurança identificando um problema, etc
+
+■ Ferramenta de monitoramento público:
+Um relógio em motores de busca na Internet e banco de dados públicos podem ser muito valiosos para detectar vazamento de informações.
+
+■ Ferramentas de DLP (Data Loss Prevention):
+Se houver uma ferramenta de DLP na empresa, ele pode fornecer informações valiosas para manipuladores de incidente trabalhando com vazamento de informações.
+
+Passo 2: CONFIRMAR A QUESTÃO
+
+Não faça nada, sem um pedido por escrito do CISO ou da pessoa responsável. Com base na sua equipe de assessoria jurídica, uma autorização escrita do utilizador também pode ser útil.
+
+■ E-Mail:
+A fonte de divulgação poderia ter enviado dados usando o seu endereço de e-mail corporativo.
+
+Sobre o sistema de mensagens, procurar e-mails enviados ou recebidos a partir de uma conta suspeita ou com um assunto especial.
+No cliente de e-mail no ambiente de trabalho do suspeito (se disponível), use uma ferramenta que permite a busca, filtrando os e-mails sinalizados como "PRIVADO". Se você realmente precisar fazer isso, peça ao usuário um acordo escrito ou peça-lhe para estar com você. Quando aplicável, olhar através de arquivos de log relacionados.
+
+Use ferramentas forenses para verificar o histórico de navegação apagados. Verifique, também, todo o conteúdo off-line deixou de todas as de navegação.
+
+■ Navegação:
+Dados podem ter sido enviado em webmail / forums / sites dedicados.
+No servidor proxy, verifique os logs relativos às ligações conta suspeita na URL suspeita usado para divulgar os dados.
+Na área de trabalho (se disponível), verificar o histórico dos navegadores instalados. Lembre-se que algumas pessoas podem ter diferentes navegadores no computador de mesa mesmo, não se esqueça de verificar cada histórico do navegador. Se o momento do vazamento de dados pode ser carimbados tempo, alguns arquivos de log podem fornecer informações úteis.
+■ Dispositivos de armazenamento externo:
+Uma série de vários dispositivos podem ser usados ​​para armazenar dados: chaves USB, CD-ROM, DVD, discos rígidos externos, smartphones, cartões de memória ...
+Pouca informação será encontrada sobre a transferência de dados com estes dispositivos. A chave USB utilizado para transferência de dados pode ser referenciado pelo sistema operacional. A análise forense pode confirmar o uso de hardware, mas não os dados transmitidos.
+■ Arquivos locais:
+Se nada foi encontrado, no entanto, ainda há chances de encontrar vestígios no sistema de arquivos local do suspeito. Assim como para pesquisas de e-mail, use uma ferramenta de análise que proíbe qualquer acesso à zona privada do usuário. Se você realmente precisar fazer isso, atue em conformidade com a lei de emprego local.
+■ Transferência de Rede:
+Várias maneiras podem ser usado para transferir dados para fora da empresa: FTP, instant messenger, etc. Tente encontrar em arquivos de log a demonstração de tal atividade.
+Os dados também podem ter sido transmitidos através de um túnel VPN ou em um servidor SSH. Neste caso, pode-se provar a ligação ao assistir arquivos de log, mas não pode ver o conteúdo transmitido.
+■ Impressora:
+Os dados podem ser enviados para impressoras conectadas à rede. Neste caso, verificar se há traços no spooler ou diretamente na impressora, uma vez que alguns dispositivos armazenam documentos impressos diretamente em um disco rígido local.
+■ Malware:
+Se nada foi encontrado, pense se um possível comprometimento por malwares é possível e atue de acordo com o IRM sobre detecção de malware.
+Nota: Mesmo quando evidências suficientes foram encontradas, procure sempre mais. Não é porque você provou que tem dados de forma fraudulenta de A para B com um método que não foi também enviado para C com outro método. Também não se esqueça de que alguém poderia ter acessado o computador. Foi o funcionário suspeito na frente de seu computador quando o vazamento ocorreu?
+
+3 - Contenção
+
+Objetivo: mitigar os efeitos do ataque no ambiente alvo.
+
+Notificar a equipe de gestão, jurídico e relações públicas para se certificar que estão preparados para lidar com uma divulgação maciça ou orientada.
+
+Dependendo do vetor de fuga, bloquear o acesso à URI de divulgação, o servidor de divulgação, a fonte de divulgação ou os destinatários divulgação. Esta ação deve ser feita em todos os pontos da infra-estrutura.
+
+Suspender as credenciais lógica e física do invasor se o vazamento foi confirmado. Envolvam a equipe de RH e a equipe jurídica antes de qualquer ação.
+
+Isolar o sistema de computação (desktop, impressora) usado para divulgar dados a fim de realizar uma análise posterior mais tarde. Esta manipulação deve ser feita da maneira mais difícil: retirar o plugue elétrico (e a bateria no caso de um laptop).
+
+4 - Remediação
+
+Objetivo: Tomar medidas para remover a ameaça e evitar futuros incidentes.
+
+Se os dados foram enviados para os servidores públicos, solicitar ao proprietário (ou webmaster) para remover os dados divulgados. Certifique-se de ajustar o seu pedido para os destinatários (um webmaster hackativista não se comportará como um webmaster de imprensa)
+
+Se não for possível remover os dados divulgados, forneça uma análise completa para a equipe de relações públicas e da gestão. Monitore documentos vazados distribuídos em sites e redes sociais (FB, Twitter, etc) e comentários na internet de usuários ou reações.
+
+Fornecer os elementos para que a equipe de RH , eventualmente, apresente uma queixa contra o responsável.
+
+5 - Recuperação
+
+Objetivo: restaurar o sistema para operações normais.
+
+Se um sistema tiver sido comprometido, restaurá-lo completamente.
+
+Eventualmente alertar seus empregados ou algumas equipes locais sobre o assunto para sensibilizar e aumentar a regras de segurança.
+
+Quando a situação volta ao normal, eventualmente, elimine a comunicação oficial.
+
+6 - Resultados Finais
+
+Objetivo: Documentar detalhes do incidente, discutir as lições aprendidas, e ajustar os planos e as defesas.
+
+Informar a hierarquia, filiais e parceiros para compartilhar as melhores práticas aplicadas sobre esse incidente para impor regras semelhantes em outros locais.
+
+6,1 - Relatório
+
+Um relatório de incidente deve ser escrito e disponibilizado a todos os atores do incidente.
+
+Os seguintes temas devem ser descritos:
+■ Detecção inicial
+■ Ações e prazos
+■ O que deu certo
+■ O que deu errado
+■ Impacto do Incidente
+
+6.2 - Capitalize
+
+Ações para melhorar as informações dos processos de manuseio de fuga devem ser definidos para capitalizar sobre essa experiência.

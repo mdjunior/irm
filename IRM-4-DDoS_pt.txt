@@ -1,0 +1,166 @@
+Metodologia de Resposta a Incidentes
+
+
+IRM # 4
+Resposta a Incidentes de DDoS
+Diretrizes para lidar com Incidentes de Distributed Denial of Service
+___________________________________________________
+
+E-Mail: 
+Web: 
+Twitter: 
+
+0 - Resumo
+
+Esta metodologia de Resposta a Incidentes é um folha de dicas dedicada a tratadores de incidentes que estão investigando um problema de segurança específico.
+
+Quem deve usar as folhas de IRM?
+
+• Administradores
+• Security Operation Center, ou CSIRTs
+• CISOs e suplentes
+• CERT (Computer Emergency Response Team)
+
+Lembre-se: Se você enfrentar um incidente, siga a IRM, tome notas e não entre em pânico. Contate seu CERT imediatamente, se necessário.
+
+0.1 - Tratamento das etapas do Incidente
+
+6 passos são definidos para lidar com incidentes de segurança
+
+Preparação: se preparar para lidar com o incidente
+Identificação: detectar o incidente
+Contenção: limitar o impacto do incidente
+Correcção: remover a ameaça
+Recuperação: recuperar para um estágio normal
+Resultados Finais: elaborar e melhorar o processo
+
+O IRM fornece informações detalhadas para cada etapa.
+
+Este documento é de uso público
+
+1 - Preparação
+
+Objetivo: Estabelecer contatos, definir procedimentos e reunir informações para economizar tempo durante um ataque.
+
+1.1 - Suporte do Provedor de Serviços de Internet
+
+■ Contate seu ISP para compreender os serviços de mitigação de DDoS que ele oferece (gratuitos e pagos) e que processo você deve seguir.
+■ Se possível, procure ter uma conexão de Internet redundante.
+■ Estabeleça contactos com o seu ISP e entidades policiais. Certifique-se de que você tem a possibilidade de utilizar um canal de comunicação out-of-band (por exemplo: telefone).
+
+1.2 - Inventário
+
+■ Criar uma lista branca de endereços IP e protocolos você deve permitir caso seja necessário priorizar o tráfego durante um ataque. Não se esqueça de incluir seus clientes críticos, os principais parceiros, etc.
+■ Documente seus detalhes infraestrutura de TI, incluindo donos de empresas, endereços IP e as IDs de circuito, configurações de roteamento (AS, etc); prepare um diagrama de topologia de rede e um inventário de ativos.
+
+1.3 - Infra-estrutura de Rede
+
+■ Projete de uma infra-estrutura de rede boa, sem ponto único de falha ou gargalo.
+■ Distribua seus servidores de DNS e outros serviços essenciais (SMTP, etc) através de diferentes AS.
+■ Fortaleça a configuração de rede, S.O.s, e componentes de aplicativos que podem ser alvo de DDoS.
+■ Trace um linha base para o desempenho da sua infra-estrutura atual, para que você possa identificar o ataque mais rápido e com mais precisão.
+■ Se seu negócio for dependente da Internet, considere a compra de produtos especializados de mitigação de DDoS ou serviços.
+■ Confirme no DNS as configurações do time-to-live (TTL) para os sistemas que podem ser atacados. Abaixe o TTLs, se necessário, para facilitar o redirecionamento de DNS, se os endereços IP originais forem atacados. 600 é um bom valor para TTL.
+■ Dependendo da criticidade de seus serviços, considere criação de um backup que você pode ligar em caso de problema.
+
+1.4 - Contatos internos
+
+■ Estabelecer contatos para o seu IDS, firewall, sistemas e equipes de rede.
+■ Colaborar com as linhas de negócios para entender as implicações de negócios (por exemplo, perda de dinheiro) de cenários prováveis de ataques DDoS.
+■ Envolva o sua equipe de planejamento BCP/DR sobre os incidentes DDoS.
+
+A fase de "preparação" deve ser considerada como o elemento mais importante de uma resposta bem sucedida a um incidente de DDoS.
+ 
+2 - Identificação
+
+Objetivo: Detectar o incidente, determinar o seu escopo, e envolver as partes apropriadas.
+
+2.1 - Analisar o ataque
+
+■ Compreender o fluxo lógico do ataque DDoS e identificar os componentes da infra-estrutura afetada por ele.
+■ Entenda se você é o alvo do ataque ou uma vítima colateral
+■ Rever a carga e arquivos de log dos servidores, roteadores, firewalls, aplicativos e outras infra-estruturas afetadas.
+■ Identificar quais os aspectos do tráfego de DDoS e diferenciá-lo do tráfego benigno
+- Fonte de endereços IP, AS, etc
+- Portas de destino
+- URLs
+- Flags de Protocolos
+
+Ferramentas de análise de rede pode ser usada para analisar o tráfego
+
+■ Tcpdump, tshark, Snort, Argus, Ntop, Aguri, MRTG
+■ Se possível, criar uma assinatura NIDS para se concentrar para diferenciar entre tráfego benignos e malignos.
+
+2.2 - Envolver os atores internos e externos
+
+■ Entre em contato com equipes internas para aprender sobre a sua visibilidade para o ataque.
+■ Contate seu ISP para pedir ajuda. Seja específico sobre o tráfego que você gostaria de controle:
+- Blocos de rede envolvida
+- Endereços IP de origem
+- Protocolos
+■ Notifique o executivo de sua empresa e equipes jurídicas.
+
+2.3 - Verifique o plano de fundo
+
+■ Descubra se a empresa recebeu uma demanda de extorsão como um precursor para o ataque.
+
+■ Pesquisa se alguém teria algum interesse em ameaçar sua empresa
+- Concorrentes
+- Grupos ideologicamente motivados (hackativistas)
+- Ex-funcionários
+
+
+3 - Contenção
+
+Objetivo: mitigar os efeitos do ataque no ambiente alvo.
+
+■ Se o gargalo é uma característica particular de um aplicativo, desativar temporariamente esse recurso.
+■ Tente regular ou bloquear o tráfego do ataque de DDoS tão perto da borda da rede quanto for possível, seja através de um roteador, firewall, balanceador de carga, dispositivo especializado, etc
+■ Termine conexões indesejadas ou processos em servidores e roteadores e ajuste suas configurações TCP / IP.
+■ Se possível, mude para sites ou redes alternativas usando DNS ou outro mecanismo. Redirecione o tráfego do ataque DDoS para buraco-negros nos endereços IP originais.
+■ Configure um canal de comunicação alternativo entre você e seus usuários / clientes (ex.: servidor web, servidor de email, servidor de voz, etc)
+■ Se for possível encaminhe tráfego, através de um serviço de traffic-scrubbing ou produto através de DNS ou alterações de rotas (por exemplo: roteamento sinkhole)
+■ Configure os filtros de saída para bloquear o tráfego de seus sistemas que podem enviar resposta para o tráfego de ataques DDoS (por exemplo: tráfego backsquatter), para evitar a adição de pacotes desnecessários na rede.
+■ No caso de uma tentativa de extorsão, tente ganhar tempo com o fraudador. Por exemplo, tente explicar que você precisa de mais tempo para conseguir a aprovação da gerência.
+
+Se o gargalo está no seio do ISP, apenas os ISP podem tomar ações eficientes. Nesse caso, trabalhar em estreita colaboração com o seu ISP e certifique-se de compartilhar informações de forma eficiente.
+
+
+4 - Remediação
+Objetivo: Tomar medidas para deter a condição de Negação de Serviço.
+
+■ Contacte o seu ISP e certifique-se que ele impõe medidas de remediação. Para mais informações, aqui estão algumas das medidas possíveis:
+- Filtragem (se possível a nível Tier 1 ou 2)
+- Traffic-scrubbing/Sinkhole/Clean-pipe
+- Blackhole Routing
+
+■ Se os responsáveis pelo DDoS foram identificados, considere envolver a aplicação da lei. Esta deve ser realizada sobre a direção de equipes de executivos e bases legais da sua empresa.
+
+Ações de correção técnica pode ser aplicada na maior parte por seu ISP.
+
+
+5 - Recuperação
+Objetivo: Venha estado funcional. de volta para o anterior
+
+5.1 - Avaliar o fim da condição de DDoS
+
+■ Garantir que os serviços afetados são acessíveis novamente.
+
+■ Verifique se o seu desempenho de infra-estrutura está de volta ao seu desempenho inicial.
+
+5.2 - Rollback as medidas de mitigação
+
+■ Volte o tráfego à sua rede original.
+■ Reinicie os serviços parados.
+
+Assegure-se que as ações de recuperação relacionados são decididas em conformidade com as equipes da rede. Levantando os serviços pode ser que efeitos colaterais inesperados apareçam.
+
+6 - Resultados Finais
+
+Objetivo: Documentar os detalhes do incidente, discutir as lições aprendidas, e ajustar os planos e as defesas.
+
+■ Considere os passos de preparação que você poderia ter tomado, tornariam a resposta ao incidente mais rápida ou mais eficaz.
+■ Se necessário, ajuste as suposições que afetaram as decisões tomadas durante a preparação contra incidentes de DDoS.
+■ Avalie a eficácia do seu processo de resposta a DDoS, envolvendo pessoas e comunicações.
+■ Considerar que os relacionamentos dentro e fora da sua organizaçãos poderiam ajudá-lo com incidentes futuros.
+■ Colabore com equipes jurídicas se uma ação judicial está em andamento.

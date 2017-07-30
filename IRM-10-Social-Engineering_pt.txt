@@ -1,0 +1,164 @@
+Metodologia de Resposta a Incidentes
+
+IRM # 10
+Incidente de Engenharia Social
+Como lidar com um incidente de engenharia social (telefone ou e-mail)
+___________________________________________________
+
+E-Mail: 
+Web: 
+Twitter: 
+
+0 - Resumo
+
+Esta metodologia de Resposta a Incidentes é um folha de dicas dedicada a tratadores de incidentes que estão investigando um problema de segurança específico.
+
+Quem deve usar as folhas de IRM?
+
+• Administradores
+• Security Operation Center, ou CSIRTs
+• CISOs e suplentes
+• CERT (Computer Emergency Response Team)
+
+Lembre-se: Se você enfrentar um incidente, siga a IRM, tome notas e não entre em pânico. Contate seu CERT imediatamente, se necessário.
+
+0.1 - Tratamento das etapas do Incidente
+
+6 passos são definidos para lidar com incidentes de segurança
+
+Preparação: se preparar para lidar com o incidente
+Identificação: detectar o incidente
+Contenção: limitar o impacto do incidente
+Correção: remover a ameaça
+Recuperação: recuperar para um estágio normal
+Resultados Finais: elaborar e melhorar o processo
+
+O IRM fornece informações detalhadas para cada etapa.
+
+Este documento é de uso público
+
+1 - Preparação
+
+Objetivo: Estabelecer contatos, definir procedimentos e reunir informações para economizar tempo durante um incidente.
+
+■ Sensibilizar usuário e políticas de segurança
+
+Nunca dê qualquer informação pessoal ou empresarial para uma pessoa não identificada. Isto poderia incluir IDs de usuário, senhas, informações de conta, nome, endereço de correio eletrónico, números de telefone (celular ou fixo), endereço, cpf, cargos, informações sobre clientes, organização ou sistemas de TI.
+
+O objetivo do engenheiro social é para roubar recursos humanos, segredos corporativos ou dados do cliente / usuário.
+
+
+Comunicar qualquer evento suspeito para o seu gerente, que irá encaminhá-lo para o CISO, a fim de ter uma comunicação centralizada.
+
+■ Ter um processo definido para redirecionar qualquer pedido "estranho" para um telefone "vermelho", se necessário.
+O número de telefone vermelho deve ser claramente marcados como "Engenharia Social". O número de telefone tem que ser fácil de identificar no diretório global de telefones de sua empresa, mas os pedidos no número reverso não devem ser exibidos.
+
+A linha telefônica vermelha deve sempre ser gravada para fins de coleta de evidências.
+
+■ Prepare-se para lidar com a conversa de engenheiros sociais para identificar quais informações poderiam ajudar a rastrear o atacante e seus objetivos.
+ 
+■ Verifique o seu departamento jurídico para ver quais ações são permitidas e quais as reações que eles podem lidar.
+
+
+2 - Identificação
+
+Parte do usuário
+
+Objetivo: Detectar o incidente, determinar o seu escopo, e envolver as partes apropriadas.
+
+
+■ Telefonema / alguém que você não conhece te chama / o seu serviço, solicitando informações detalhadas.
+
+Se o contato trabalha fora da empresa e faz pedidos de informações que poderiam ser valiosos para um concorrente, nege seus pedidos e vá para a parte 3.
+
+Se o contato finge ser um funcionário de sua empresa, mas o número de telefone está escondido ou não é interno, proponha que você ligue de volta para o número declarado por ele no diretório. Se o atacante supostamente concorda, ligue de volta para verificar. Se ele rejeita esta opção, vá para a parte 3.
+
+O atacante pode usar várias técnicas para atrair sua vítima para falar (medo, curiosidade, empatia ...). Não divulgue informações em qualquer caso.
+Ouça com atenção aos seus pedidos e no final peça um número de telefone para ligar de volta ou um endereço de e-mail para resposta.
+Tome notas e mantenha a calma, mesmo se o atacante começar gritar ou ameaçar, lembre-se que ele tenta usar as fraquezas humanas.
+
+Se você pode ir mais longe, as seguintes informações serão preciosas:
+- O nome do correspondente,
+- Informações solicitadas / pessoas
+- Acento, competências linguísticas,
+- A linguagem da indústria e do conhecimento organizacional,
+- Ruídos de fundo
+- Tempo e duração da chamada
+
+■ E-mail / Alguém que você não conhece solicita informações detalhadas.
+
+Se o contato tiver um endereço de email de "fora da empresa" e solicita informações que poderiam ser valiosas para um concorrente, vá para a parte 3.
+
+Se o contato usa um endereço de e-mail interno, mas está pedindo informações estranhas, pergunte-lhe algumas explicações e use o diretório da empresa para obter o nome de seu gerente que você colocará como cópia no email.
+
+■ Eventualmente notifique o topo da gestão para informá-los que um incidente foi encontrado relativo a um ataque de engenharia social. Eles podem entender os objetivos, dependendo do contexto.
+
+3 - Contenção
+
+Parte do usuário
+
+Objetivo: mitigar os efeitos do ataque no ambiente alvo.
+
+Nesta etapa, você deve ter certeza de que você está lidando com um ataque de engenharia social.
+
+Ações para todos os empregados:
+
+■ Telefonema
+
+Se o atacante pede que você dê um número de telefone, siga estes passos:
+
+- Use a "linha de telefone vermelho" de seu CERT / CSIRT, se existente.
+
+- Dê-lhe o número com um nome de fantasia.
+
+- Chame imediatamente a sua equipe CERT / CSIRT explicando o que aconteceu e o nome escolhido inventado.
+
+Se o atacante estressa muito de você e não lhe deixa tempo para encontrar o número do telefone vermelho, pedça-lhe para ligá-lo de volta mais tarde, fingindo uma reunião ou outro compromisso empresarial.
+
+Se o atacante quer atingir alguém, siga estes pontos:
+
+- Colocar em espera o atacante e chamar CERT / CSIRT equipe e explicar o que aconteceu
+
+- Transferência a conversa do atacante para a equipe do CERT / CSIRT (não lhe dar o número)
+
+■ E-mail
+
+Encaminhe a sua equipe de segurança o e-mail incluindo os cabeçalhos (enviar como documentos em anexo) para fins de investigação. Pode ajudar a controlar o atacante.
+
+4 - Remediação
+
+Objetivo: Tomar medidas para remover a ameaça e evitar futuros incidentes.
+
+Algumas ações de remediação possíveis podem ser julgado:
+■ Alertar a aplicação da lei e / ou registrar uma reclamação,
+■ Discutir o problema em círculos de confiança para saber se a empresa está enfrentando este problema sozinho,
+■ Ameaçar o atacante com ações legais caso ele possa ser identificado
+
+
+5 - Recuperação
+
+Objetivo: restaurar o sistema para operações normais.
+
+Notificar a gerência das ações e as decisões tomadas sobre o caso de engenharia social.
+
+6 - Resultados Finais
+
+Objetivo: Documentar detalhes do incidente, discutir as lições aprendidas, e ajustar os planos e as defesas.
+
+Informar a sua hierarquia e subsidiárias sobre o incidente, isso pode ajudar a evitar ataques similares mais tarde.
+
+6,1 - Relatório
+
+Um relatório de incidente deve ser escrito e disponibilizado a todos os intervenientes do incidente.
+
+Os seguintes temas devem ser descritos:
+■ Detecção inicial
+■ Ações e prazos
+■ O que deu certo
+■ O que deu errado
+■ Custo do Incidente (perdas diretas e indiretas)
+
+6.2 - Capitalize
+
+Ações para melhorar os processos de manipulação de engenharia social devem ser definido para capitalizar esta experiência, especialmente a consciência.
+

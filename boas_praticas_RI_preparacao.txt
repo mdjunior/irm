@@ -1,0 +1,164 @@
+Resposta a Infecção por Worm
+
+
+■ Definir atores, para cada entidade, que estarão envolvidos dentro da célula de crise. Esses atores devem estar documentados em uma lista de contatos mantida permanentemente atualizada.
+■ Certifique-se que as ferramentas de análise estão em alta, funcionais (Antivirus, IDS, analisadores de logs), não comprometidas, e atualizadas.
+■ Certifique-se de ter o mapa da arquitetura de suas redes.
+■ Certifique-se que um inventário atualizado dos ativos está disponível.
+■ Realizar uma vigilância de segurança contínua e informar as pessoas encarregadas da segurança acerca das tendências de ameaças.
+
+
+Detecção de Intrusão em Windows
+
+
+■ O acesso físico ao sistema suspeito deve ser oferecido ao investigador forense. O acesso físico é preferível que o acesso remoto, uma vez que o hacker poderia detectar as investigações feitas no sistema (usando um sniffer de rede por exemplo).
+■ A cópia física do disco rígido poderá ser necessário para efeitos de forense e provas. Por fim, se necessário, um acesso físico pode ser necessário para desconectar a máquina suspeita de qualquer rede.
+■ Um bom conhecimento da atividade de rede usual da máquina/servidor é necessário. Você deverá ter um arquivo em um local seguro descrevendo a atividade das portas de costume, para comparar de forma eficiente para o estado atual.
+■ Um bom conhecimento dos serviços habituais em execução na máquina pode ser muito útil. Não hesite em pedir assistencia a um especialista de Windows, quando aplicável. Uma boa idéia também é ter um mapa de todos os serviços/processo de execução da máquina.
+■ Pode ser uma grande vantagem para trabalhar em um ambiente corporativo, onde todas as máquinas de usuários são as mesmos, instaladas a partir de um CD mestre ter um mapa de todos os processos/serviços/aplicações. No ambiente tal em que os usuários não têm permissão para instalar software, considere qualquer processo adicional/serviço/aplicação como suspeito.
+■ Quanto mais você souber sobre a máquina em seu estado limpo, mais chances você tem de detectar qualquer atividade fraudulenta em execução na mesma.
+
+
+Detecção de Intrusão em Unix/Linux
+
+
+■ O acesso físico ao sistema suspeito deve ser oferecido ao investigador forense. O acesso físico é preferível que o acesso remoto, uma vez que o hacker poderia detectar as investigações feitas no sistema (usando um sniffer de rede por exemplo).
+■ A cópia física do disco rígido poderá ser necessário para efeitos de forense e provas. Por fim, se necessário, um acesso físico pode ser necessário para desconectar a máquina suspeita de qualquer rede.
+■ Um bom conhecimento da atividade de rede usual da máquina/servidor é necessário. Você deverá ter um arquivo em um local seguro descrevendo a atividade das portas de costume, para comparar de forma eficiente para o estado atual.
+■ Um bom conhecimento dos serviços habituais em execução na máquina pode ser muito útil. Não hesite em pedir assistencia a um especialista de Unix/Linux, quando aplicável. Uma boa idéia também é ter um mapa de todos os serviços/processo de execução da máquina.
+■ Você deve ter uma lista regularmente atualizada de todos os arquivos críticos (especialmente SUID e arquivos GUID) armazenados em um local seguro fora da rede ou até mesmo no papel. Com esta lista, você pode facilmente separar usuais arquivos SUID e detectar os incomuns.
+■ Tenha um mapa de sua atividade de portas e trafego usual.
+
+
+Resposta a Incidentes de DDoS
+
+
+1.1 - Suporte do Provedor de Serviços de Internet
+■ Contate seu ISP para compreender os serviços de mitigação de DDoS que ele oferece (gratuitos e pagos) e que processo você deve seguir.
+■ Se possível, procure ter uma conexão de Internet redundante.
+■ Estabeleça contactos com o seu ISP e entidades policiais. Certifique-se de que você tem a possibilidade de utilizar um canal de comunicação out-of-band (por exemplo: telefone).
+
+1.2 - Inventário
+■ Criar uma lista branca de endereços IP e protocolos você deve permitir caso seja necessário priorizar o tráfego durante um ataque. Não se esqueça de incluir seus clientes críticos, os principais parceiros, etc.
+■ Documente seus detalhes infraestrutura de TI, incluindo donos de empresas, endereços IP e as IDs de circuito, configurações de roteamento (AS, etc); prepare um diagrama de topologia de rede e um inventário de ativos.
+
+1.3 - Infra-estrutura de Rede
+■ Projete de uma infra-estrutura de rede boa, sem ponto único de falha ou gargalo.
+■ Distribua seus servidores de DNS e outros serviços essenciais (SMTP, etc) através de diferentes AS.
+■ Fortaleça a configuração de rede, S.O.s, e componentes de aplicativos que podem ser alvo de DDoS.
+■ Trace um linha base para o desempenho da sua infra-estrutura atual, para que você possa identificar o ataque mais rápido e com mais precisão.
+■ Se seu negócio for dependente da Internet, considere a compra de produtos especializados de mitigação de DDoS ou serviços.
+■ Confirme no DNS as configurações do time-to-live (TTL) para os sistemas que podem ser atacados. Abaixe o TTLs, se necessário, para facilitar o redirecionamento de DNS, se os endereços IP originais forem atacados. 600 é um bom valor para TTL.
+■ Dependendo da criticidade de seus serviços, considere criação de um backup que você pode ligar em caso de problema.
+
+1.4 - Contatos internos
+■ Estabelecer contatos para o seu IDS, firewall, sistemas e equipes de rede.
+■ Colaborar com as linhas de negócios para entender as implicações de negócios (por exemplo, perda de dinheiro) de cenários prováveis de ataques DDoS.
+■ Envolva o sua equipe de planejamento BCP/DR sobre os incidentes DDoS.
+A fase de "preparação" deve ser considerada como o elemento mais importante de uma resposta bem sucedida a um incidente de DDoS.
+
+
+Comportamento da rede malicioso
+
+
+1.1 - Sistemas de Detecção de Intrusão
+■ Certifique-se que as ferramentas de monitoramento estão atualizados;
+■ Estabelecer contatos com sua rede e as equipes de operação de segurança;
+■ Certifique-se que um processo de notificação de alerta está definido e é bem conhecido por todos.
+
+1.2 - Rede
+■ Certifique-se que um inventário dos pontos de acesso à rede está disponível e atualizado;
+■ Certifique-se que as equipes da rede têm acesso aos mapas de rede e configurações;
+■ Procure potenciais pontos de acesso de rede indesejado (xDSL, Wi-Fi, Modem, ...) periodicamente e feche-os;
+■ Certifique-se que as ferramentas de gestão de tráfego e os processos são operacionais.
+
+1.3 - Tráfego de base
+■ Identificar o tráfego de base e fluxos;
+■ Identificar os fluxos de negócios críticos.
+
+
+Desfiguração de site
+
+
+■ Tenha esquemas atualizados descrevendo seus componentes de aplicativo relacionados ao servidor web.
+■ Construa um site de backup live e pronto, em que você pode publicar conteúdo.
+■ Defina um procedimento para redirecionar todos os visitantes para este site backup.
+■ Implante ferramentas de monitoramento para detectar rapidamente qualquer comportamento anormal em seus sites críticos.
+■ Exporte arquivos do servidor web log para um servidor externo. Certifique-se que os relógios estão sincronizados entre cada servidor.
+■ Referencie conteúdos externos (estáticos ou dinâmicos) e crie uma lista para cada um deles. Não se esqueça de terceiros para a propaganda.
+■ Referêncie pontos de contato do seu provedor de hospedagem.
+■ Certifique-se seu provedor de hospedagem reforça as políticas para logar todos os eventos.
+■ Verifique se você tem um mapa da rede atualizado.
+
+
+Detecção de malware em Windows
+
+
+■ O acesso físico ao sistema suspeito deve ser oferecido ao investigador forense. 
+■ Um bom conhecimento das atividades habituais de rede e locais do computador são apreciados. Você deve ter um arquivo que descreve a atividade das portas usualmente, para ter uma base de comparação com o estado atual.
+■ Um bom conhecimento dos serviços comuns utilizados e aplicativos instalados é necessário. Não hesite em pedir a um especialista do Windows a sua assistência, quando aplicável.
+
+
+Chantagem
+
+
+■ Identificar contatos internos (equipe de segurança, equipe de resposta a incidente, o departamento jurídico etc)
+■ Identificar os contatos externos, que poderiam ser necessários, principalmente para fins de investigação como a aplicação da lei.
+■ Certifique-se que a segurança do processo de escalação de incidentes é definido e os atores estão claramente definidos.
+■ Certifique-se de ter capacidades de inteligência (comunidades, contato, etc) que podem estar envolvidos em tais incidentes.
+
+
+Malware em smartphones
+
+
+■ O helpdesk deve ter um processo definido para dispositivos móveis em caso de suspeita de infecção por malware: substituir o smartphone do usuário com um novo e isolar o dispositivo suspeito para análise pelo investigador forense.
+■ Um bom conhecimento da atividade usual do smartphone é apreciado (padrão e ferramentas extras em execução). Um especialista de suporte em smartphone pode ser útil para auxiliar o investigador forense.
+■ Um monitoramento deve ser feito para verificar o usuário incomum ou atividade de rede anômala.
+
+
+Incidente de Engenharia Social
+
+
+■ Sensibilizar usuário e políticas de segurança
+  Nunca dê qualquer informação pessoal ou empresarial para uma pessoa não identificada. Isto poderia incluir IDs de usuário, senhas, informações de conta, nome, endereço de correio eletrónico, números de telefone (celular ou fixo), endereço, cpf, cargos, informações sobre clientes, organização ou sistemas de TI.
+  O objetivo do engenheiro social é para roubar recursos humanos, segredos corporativos ou dados do cliente / usuário.
+  Comunicar qualquer evento suspeito para o seu gerente, que irá encaminhá-lo para o CISO, a fim de ter uma comunicação centralizada.
+■ Ter um processo definido para redirecionar qualquer pedido "estranho" para um telefone "vermelho", se necessário.
+  O número de telefone vermelho deve ser claramente marcados como "Engenharia Social". O número de telefone tem que ser fácil de identificar no diretório global de telefones de sua empresa, mas os pedidos no número reverso não devem ser exibidos.
+  A linha telefônica vermelha deve sempre ser gravada para fins de coleta de evidências.
+■ Prepare-se para lidar com a conversa de engenheiros sociais para identificar quais informações poderiam ajudar a rastrear o atacante e seus objetivos.
+■ Verifique o seu departamento jurídico para ver quais ações são permitidas e quais as reações que eles podem lidar.
+
+
+Lidar com informações internas divulgadas intencionalmente
+
+
+1.1 - Contatos
+■ Identificar contatos técnicos internos (equipe de segurança, a equipe de resposta a incidentes ...)
+■ Certifique-se de ter pontos de contato na sua equipe de relações públicas, a equipe de recursos humanos e departamento jurídico
+■ Identifique os contatos externos, que poderiam ser necessários, principalmente para fins de investigação (como a aplicação da lei, por exemplo).
+
+1.2 - A política de segurança
+■ Certifique-se que o valor da informação corporativa é explicada nas regras de procedimento, o gráfico de TI, conscientização e treinamento
+■ Certifique-se de todos os bens valiosos são identificados como deveriam ser
+■ Certifique-se de que a segurança do processo de escalação de incidentes é definido e os atores estão claramente definidos e identificados.
+
+
+Abuso de informação privilegiada
+
+
+■ Certifique-se de ter pontos de contato na sua equipe de relações públicas, a equipe de recursos humanos e departamento jurídico
+■ Tenha um recurso de log centralizado
+■ Certifique-se de ter uma autorização global e um processo de depuração. Este processo deve cuidar especialmente da retirada de privilégios em empregos anteriores
+■ Fornecer autenticação forte de acordo com o risco da aplicação de negócio
+
+
+Resposta a incidentes de phishing
+
+
+■ Criar uma lista de todos os domínios legítimos pertencentes à sua empresa. Isso ajudará a analisar a situação e impedir que você iniciar um procedimento de queda em um site legítimo esquecido.
+■ Prepare uma página web hospedada em sua infra-estrutura, pronto para ser publicado a qualquer hora, para alertar seus clientes sobre um ataque phishing em curso. Prepare e teste um procedimento de implantação claro.
+■ Prepare templates de e-mail para o procedimento de queda do site. Você vai usá-los para todos os casos de phishing, se possível em várias línguas. Isto irá acelerar as coisas ao tentar alcançar a empresa de hospedagem durante o processo de queda.
+
+
+
